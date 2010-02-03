@@ -1,6 +1,6 @@
 ## spreadsheet-engine
 
-A Google App Engine application written in Python that provides an API for data hosted by Google Spreadsheets. It utilizes the [Google Spreadsheets Data API](http://code.google.com/apis/spreadsheets/data/), specifically its [text_db](http://code.google.com/p/gdata-python-client/source/browse/trunk/src/gdata/spreadsheet/text_db.py) module. It uses [JSON](http://en.wikipedia.org/wiki/Json) for the data interchange format. The project allows a client application to access data hosted by Google Spreadsheets simply by making HTTP GET and POST calls. 
+A Google App Engine application written in Python that provides an API for data hosted by Google Spreadsheets. It utilizes the [Google Spreadsheets Data API](http://code.google.com/apis/spreadsheets/data/), specifically its [text_db](http://code.google.com/p/gdata-python-client/source/browse/trunk/src/gdata/spreadsheet/text_db.py) module. It uses [JSON](http://en.wikipedia.org/wiki/Json) for the data interchange format. The project allows a client application to access data hosted by Google Spreadsheets simply by making HTTP GET and POST calls. It provides [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) function calls (`insert`, `select`, `update`, `delete`).
 
 ### Example
 

@@ -140,6 +140,19 @@ class MainPage(webapp.RequestHandler):
 				self.response.set_status(400, 'Bad Request')
 				return
 
+		elif op == 'update':
+			if self._is_invalid(row): return
+			if self._is_invalid(data): return
+			try:
+				record = table.GetRecord(row_number=row)
+				if self._is_invalid(record): return
+				for key, value in data.iteritems():
+					record.content[key] = value
+				record.Push()
+			except:
+				self.response.set_status(400, 'Bad Request')
+				return
+
 		elif op == 'insert':
 			if self._is_invalid(data): return
 			try:
