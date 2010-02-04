@@ -55,23 +55,23 @@ class MainPage(webapp.RequestHandler):
 				return True, None, None
 			memcache.set(key = 'client', value = client, time = 3600)
 
-		db = memcache.get('db')
+		db = memcache.get('db_' + db_name)
 		if db is None:
 			try:
 				db = client.GetDatabases(name=db_name)
 			except:
 				return True, None, None
 			if self._is_invalid(len(db)): return True, None, None
-			memcache.set(key = 'db', value = db, time = 3600)
+			memcache.set(key = 'db_' + db_name, value = db, time = 3600)
 
-		table = memcache.get('table')
+		table = memcache.get('table_' + table_name)
 		if table is None:
 			try:
 				table = db[0].GetTables(name=table_name)
 			except:
 				return True, None, None
 			if self._is_invalid(len(table)): return True, None, None
-			memcache.set(key = 'table', value = table, time = 3600)
+			memcache.set(key = 'table_' + table_name, value = table, time = 3600)
 
 		return False, db[0], table[0]
 
